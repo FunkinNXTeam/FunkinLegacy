@@ -899,13 +899,14 @@ class PlayState extends MusicBeatState
 					});
 				case 'senpai' | 'roses' | 'thorns':
 					schoolIntro(doof);
+				#if CUTSCENE_SUPPORT
 				case 'ugh':
 					ughIntro();
 				case 'stress':
 					stressIntro();
 				case 'guns':
 					gunsIntro();
-
+				#end
 				default:
 					startCountdown();
 			}
@@ -2311,8 +2312,10 @@ class PlayState extends MusicBeatState
 
 				switch (PlayState.storyWeek)
 				{
+					#if CUTSCENE_SUPPORT
 					case 7:
 						FlxG.switchState(new VideoState());
+					#end
 					default:
 						FlxG.switchState(new StoryMenuState());
 				}

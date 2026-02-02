@@ -1,5 +1,5 @@
 package;
-#if newgrounds
+#if NG_SUPPORT
 
 import flixel.FlxG;
 import flixel.util.FlxSignal;
@@ -24,7 +24,7 @@ using StringTools;
  */
 class NGio
 {
-	#if newgrounds
+	#if NG_SUPPORT
 	/**
 	 * True, if the saved sessionId was used in the initial login, and failed to connect.
 	 * Used in MainMenuState to show a popup to establish a new connection
@@ -247,7 +247,7 @@ class NGio
 
 	static public function logEvent(event:String)
 	{
-		#if newgrounds
+		#if NG_SUPPORT
 		NG.core.calls.event.logEvent(event).send();
 		trace('should have logged: ' + event);
 		#else
@@ -257,7 +257,7 @@ class NGio
 
 	static public function unlockMedal(id:Int)
 	{
-		#if newgrounds
+		#if NG_SUPPORT
 		if (isLoggedIn)
 		{
 			var medal = NG.core.medals.get(id);
@@ -271,7 +271,7 @@ class NGio
 
 	static public function postScore(score:Int = 0, song:String)
 	{
-		#if newgrounds
+		#if NG_SUPPORT
 		if (isLoggedIn)
 		{
 			for (id in NG.core.scoreBoards.keys())

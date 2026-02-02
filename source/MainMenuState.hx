@@ -27,7 +27,7 @@ using StringTools;
 #if discord_rpc
 import Discord.DiscordClient;
 #end
-#if newgrounds
+#if NG_SUPPORT
 import io.newgrounds.NG;
 import ui.NgPrompt;
 #end
@@ -103,7 +103,7 @@ class MainMenuState extends MusicBeatState
 			menuItems.createItem('donate', selectDonate, hasPopupBlocker);
 		#end
 		menuItems.createItem('options', function() startExitState(new OptionsState()));
-		// #if newgrounds
+		// #if NG_SUPPORT
 		// 	if (NGio.isLoggedIn)
 		// 		menuItems.createItem("logout", selectLogout);
 		// 	else
@@ -142,7 +142,7 @@ class MainMenuState extends MusicBeatState
 
 		menuItems.enabled = true;
 
-		// #if newgrounds
+		// #if NG_SUPPORT
 		// if (NGio.savedSessionFailed)
 		// 	showSavedSessionFailed();
 		// #end
@@ -170,7 +170,7 @@ class MainMenuState extends MusicBeatState
 	}
 	#end
 
-	#if newgrounds
+	#if NG_SUPPORT
 	function selectLogin()
 	{
 		openNgPrompt(NgPrompt.showLogin());

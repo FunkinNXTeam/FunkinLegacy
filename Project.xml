@@ -2,7 +2,7 @@
 <project>
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="Friday Night Funkin'" file="Funkin" packageName="com.ninjamuffin99.funkin" package="com.ninjamuffin99.funkin" main="Main" version="0.2.8" company="ninjamuffin99" />
+	<app title="Friday Night Funkin'" file="Funkin" packageName="com.hirof4r3vr.funkinlegacy" package="com.hirof4r3vr.funkinlegacy" main="Main" version="0.2.8" company="ninjamuffin99" />
 
 	<!--Switch Export with Unique ApplicationID and Icon-->
 	<set name="APP_ID" value="0x0100f6c013bbc000" />
@@ -14,6 +14,11 @@
 
 	<!--Minimum without FLX_NO_GAMEPAD: 11.8, without FLX_NO_NATIVE_CURSOR: 11.2-->
 	<set name="SWF_VERSION" value="11.8" />
+
+	<!-- ______________________ FUNKIN' DEFINES ______________________ -->
+
+	<define name="CUTSCENE_SUPPORT" if="html5" />
+	<define name="NG_SUPPORT" if="html5" />
 
 	<!-- ____________________________ Window Settings ___________________________ -->
 
@@ -189,17 +194,6 @@
 	<haxedef name="CAN_CHEAT" if="switch debug"/>
 	
 	<!-- <haxedef name="CLEAR_INPUT_SAVE"/> -->
-	
-	<section if="newgrounds">
-		<!-- Enables Ng.core.verbose -->
-		<!-- <haxedef name="NG_VERBOSE" /> -->
-		
-		<!-- Enables a NG debug session, so medals don't permently unlock -->
-		<!-- <haxedef name="NG_DEBUG" /> -->
-		
-		<!-- pretends that the saved session Id was expired, forcing the reconnect prompt -->
-		<!-- <haxedef name="NG_FORCE_EXPIRED_SESSION" if="debug" /> -->
-	</section>
 	<haxedef name='no-deprecation-warnings' />
 	
 </project>

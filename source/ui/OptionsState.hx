@@ -191,7 +191,7 @@ class OptionsMenu extends Page
 			createItem('donate', selectDonate, hasPopupBlocker);
 		}
 		#end
-		#if newgrounds
+		#if NG_SUPPORT
 		if (NGio.isLoggedIn)
 			createItem("logout", selectLogout);
 		else
@@ -234,7 +234,7 @@ class OptionsMenu extends Page
 	}
 	#end
 
-	#if newgrounds
+	#if NG_SUPPORT
 	function selectLogin()
 	{
 		openNgPrompt(NgPrompt.showLogin());
