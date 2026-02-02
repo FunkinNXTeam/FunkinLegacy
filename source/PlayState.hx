@@ -174,6 +174,7 @@ class PlayState extends MusicBeatState
 		camHUD.bgColor.alpha = 0;
 
 		FlxG.cameras.reset(camGame);
+		FlxG.cameras.setDefaultDrawTarget(camGame, true);
 		FlxG.cameras.add(camHUD, false);
 
 		persistentUpdate = true;

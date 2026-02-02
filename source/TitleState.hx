@@ -371,7 +371,7 @@ class TitleState extends MusicBeatState
 		if (FlxG.keys.justPressed.F)
 			FlxG.fullscreen = !FlxG.fullscreen;
 
-		var pressedEnter:Bool = FlxG.keys.justPressed.ENTER;
+		var pressedEnter:Bool = FlxG.keys.justPressed.ENTER || controls.ACCEPT;
 
 		#if mobile
 		for (touch in FlxG.touches.list)
@@ -393,6 +393,14 @@ class TitleState extends MusicBeatState
 				pressedEnter = true;
 			#end
 		}
+
+		#if switch
+		if (NXMain.nxController != null) {
+			if (NXMain.nxController.isJustPressed(NXControlButton.A) ||
+				NXMain.nxController.isJustPressed(NXControlButton.PLUS))
+				pressedEnter = true;
+		}
+		#end
 
 		if (pressedEnter && !transitioning && skippedIntro)
 		{

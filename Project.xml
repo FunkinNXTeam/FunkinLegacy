@@ -27,6 +27,7 @@
 	<set name="LIME_CAIRO" value="0" if="switch" />
 	<set name="LIME_OPENGL" value="1" if="switch" />
 	<icon path="art/SwitchIco.png" size='256' if="switch"/>
+	<haxelib name="hx_libnx"/>
 
 	<!-- ____________________________ Window Settings ___________________________ -->
 

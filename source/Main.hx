@@ -14,6 +14,11 @@ import openfl.media.Video;
 import openfl.net.NetConnection;
 import openfl.net.NetStream;
 
+#if switch
+import nx.NXMain;
+import nx.NXGame;
+#end
+
 class Main extends Sprite
 {
 	var gameWidth:Int = 1280; // Width of the game in pixels (might be less / more in actual pixels depending on your zoom).
@@ -73,18 +78,28 @@ class Main extends Sprite
 
 		if (zoom == -1)
 		{
+			#if switch
+			zoom = 1;
+			#else
 			var ratioX:Float = stageWidth / gameWidth;
 			var ratioY:Float = stageHeight / gameHeight;
 			zoom = Math.min(ratioX, ratioY);
 			gameWidth = Math.ceil(stageWidth / zoom);
 			gameHeight = Math.ceil(stageHeight / zoom);
+			#end
 		}
 
 		#if !debug
 		initialState = TitleState;
 		#end
 
+		#if switch
+		Sys.setCwd("romfs:/");
+		NXMain.init();
+		addChild(new NXGame(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen));
+		#else
 		addChild(new FlxGame(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen));
+		#end
 
 		#if !mobile
 		fpsCounter = new FPS(10, 3, 0xFFFFFF);

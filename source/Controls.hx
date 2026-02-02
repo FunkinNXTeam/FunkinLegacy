@@ -566,7 +566,7 @@ class Controls extends FlxActionSet
 			Control.NOTE_LEFT => [DPAD_LEFT, X, LEFT_STICK_DIGITAL_LEFT, RIGHT_STICK_DIGITAL_LEFT],
 			Control.NOTE_RIGHT => [DPAD_RIGHT, B, LEFT_STICK_DIGITAL_RIGHT, RIGHT_STICK_DIGITAL_RIGHT],
 			Control.PAUSE => [START],
-			Control.RESET => [Y]
+			//Control.RESET => [Y] // why is this even a thing what the flip man :()
 			#if CAN_CHEAT
 			,Control.CHEAT => [X]
 			#end
