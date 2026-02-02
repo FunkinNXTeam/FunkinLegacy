@@ -20,6 +20,14 @@
 	<define name="CUTSCENE_SUPPORT" if="html5" />
 	<define name="NG_SUPPORT" if="html5" />
 
+	<!-- ______________________ NX DEFINES ______________________ -->
+
+	<haxedef name="lime-opengl" if="switch" />
+	<haxedef name="lime-cairo" value="false" if="switch" />
+	<set name="LIME_CAIRO" value="0" if="switch" />
+	<set name="LIME_OPENGL" value="1" if="switch" />
+	<icon path="art/SwitchIco.png" size='256' if="switch"/>
+
 	<!-- ____________________________ Window Settings ___________________________ -->
 
 	<!--These window settings apply to all targets-->
@@ -35,7 +43,7 @@
 	<window if="mobile" orientation="landscape" fullscreen="true" width="0" height="0" resizable="false"/>
 
 	<!--Switch-specific-->
-	<window if="switch" orientation="landscape" fullscreen="true" width="0" height="0" resizable="true" />
+	<window if="switch" orientation="landscape" fullscreen="true" width="0" height="0" resizable="false" hardware="true" />
 
 	<!-- _____________________________ Path Settings ____________________________ -->
 
@@ -127,7 +135,6 @@
 
 	<!--In case you want to use the ui package-->
 	<haxelib name="flixel-ui" />
-	<haxelib name="faxe" if='switch'/>
 	<haxelib name="polymod"/>
 	<haxelib name="newgrounds"/> <!-- Use 1.3.0 -->
 	<haxelib name="hxcpp-debug-server" if="desktop debug"/>
