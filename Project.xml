@@ -17,7 +17,7 @@
 
 	<!-- ______________________ FUNKIN' DEFINES ______________________ -->
 
-	<define name="CUTSCENE_SUPPORT" if="html5" />
+	<define name="CUTSCENE_SUPPORT" />
 	<define name="NG_SUPPORT" if="html5" />
 
 	<!-- ______________________ NX DEFINES ______________________ -->
