@@ -30,6 +30,7 @@ class PauseSubState extends MusicBeatSubstate
 	var curSelected:Int = 0;
 
 	var pauseMusic:FlxSound;
+	var cantUnpause:Float = 0.1;
 
 	var practiceText:FlxText;
 
@@ -121,6 +122,8 @@ class PauseSubState extends MusicBeatSubstate
 
 	override function update(elapsed:Float)
 	{
+		cantUnpause -= elapsed;
+
 		if (pauseMusic.volume < 0.5)
 			pauseMusic.volume += 0.01 * elapsed;
 
@@ -128,7 +131,7 @@ class PauseSubState extends MusicBeatSubstate
 
 		var upP = controls.UI_UP_P;
 		var downP = controls.UI_DOWN_P;
-		var accepted = controls.ACCEPT;
+		var accepted = controls.ACCEPT && cantUnpause <= 0;
 
 		if (upP)
 		{

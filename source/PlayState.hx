@@ -1804,6 +1804,7 @@ class PlayState extends MusicBeatState
 			if (!startTimer.finished)
 				startTimer.active = true;
 			paused = false;
+			skipNoteInput = 0.15;
 
 			#if discord_rpc
 			if (startTimer.finished)
@@ -1856,6 +1857,7 @@ class PlayState extends MusicBeatState
 	}
 
 	private var paused:Bool = false;
+	private var skipNoteInput:Float = 0;
 	var startedCountdown:Bool = false;
 	var canPause:Bool = true;
 
@@ -2623,6 +2625,12 @@ class PlayState extends MusicBeatState
 
 	private function keyShit():Void
 	{
+		if (skipNoteInput > 0)
+		{
+			skipNoteInput -= FlxG.elapsed;
+			return;
+		}
+
 		// control arrays, order L D R U
 		var holdArray:Array<Bool> = [controls.NOTE_LEFT, controls.NOTE_DOWN, controls.NOTE_UP, controls.NOTE_RIGHT];
 		var pressArray:Array<Bool> = [
